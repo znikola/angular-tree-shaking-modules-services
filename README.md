@@ -1,27 +1,32 @@
-# AngularTreeShakingModulesServices
+# Tree shaking test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+This app tests under which circumstances are services tree shaken in an Angular app.
 
-## Development server
+The goal is to inject services from a library, therefore the `core` lib.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Running the app
 
-## Code scaffolding
+Build: `yarn build`. It will build with the `prod` flag on.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run: `yarn start`. It will run the app with the `prod` flag on.
 
-## Build
+## Providing services
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+As Angular offers two main ways to register (provide) a service, there are two cases:
 
-## Running unit tests
+- When a service is registered un a module: `@Injectable({ providedIn: AModule })`
+- When a service is registered in 'root': `@Injectable({ providedIn: 'root' })`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Check the results
 
-## Running end-to-end tests
+To check the tested results, open the browser's console and check for '...should NOT be tree shaked...' logs.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Another way to check for the tree shaked services is to open the `main.*.js` file from `dist/angular-tree-shaking-modules-services`, and search for console logs from the services that should be tree shaked (it's expected to find none).
 
-## Further help
+## Results
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Services that are provided in `root` or in a module, are tree shaked if not injected.
+
+Services that are injected somewhere are not tree shaked.
+
+Note the `another.module.ts` that tests what will happen when the module in which a service is provided in is imported twice.
