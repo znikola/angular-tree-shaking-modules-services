@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "terminal.integrated.scrollback": 3000,
+  "editor.tabCompletion": "on",
+  "workbench.editor.highlightModifiedTabs": true,
+  "search.showLineNumbers": true,
+  "breadcrumbs.enabled": true
+}
