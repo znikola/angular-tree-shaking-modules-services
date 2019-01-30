@@ -54,7 +54,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "tsConfig": "src/tsconfig.app.prod.json"
             }
           }
         },

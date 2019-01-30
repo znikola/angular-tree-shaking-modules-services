@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ImportedProvidedInModuleService, ImportedProvidedInRootService } from 'projects/core/src/public_api';
+
+import { ImportedProvidedInModuleService, ImportedProvidedInRootService } from '@test/core';
+// import { ImportedProvidedInModuleService, ImportedProvidedInRootService } from 'projects/core/src/public_api';
 
 @Component({
   selector: 'app-root',
