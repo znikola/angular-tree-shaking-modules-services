@@ -20,7 +20,7 @@
       "dom"
     ],
     "paths": {
-      "@test/core": ["projects/core/public_api"],
+      "@test/core": ["dist/core"],
     }
   }
 }
